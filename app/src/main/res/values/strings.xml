@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">coffee shop</string>
+    <string name="coffee_house">Coffee\n<font color="#F1953e">H</font>ouse</string>
+    <string name="get_started">Get started</string>
+</resources>
