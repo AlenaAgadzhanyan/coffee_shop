@@ -6,4 +6,9 @@
     <string name="sign_up">Sign up</string>
     <string name="authorization">Authorization</string>
     <string name="sign_in">Sign in</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="coffee_house2">Coffee <font color="#F1953e">H</font>ouse</string>
+    <string name="search_anything">Search anything</string>
 </resources>
