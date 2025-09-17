@@ -1,7 +1,8 @@
-package com.example.coffeeshop
+package com.example.coffeeshop.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,6 +11,9 @@ import android.widget.EditText
 import android.widget.Button
 import android.widget.Toast
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.example.coffeeshop.R
+
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +24,7 @@ class RegistrationActivity : AppCompatActivity() {
         val userPassword: EditText = findViewById(R.id.user_password)
         val userRepeatPassword: EditText = findViewById(R.id.user_repeat_password)
         val button: Button = findViewById(R.id.sign_up)
+        val auth = FirebaseAuth.getInstance()
 
         val linkToAuth: TextView = findViewById(R.id.link_to_auth)
         linkToAuth.setOnClickListener{
@@ -36,16 +41,19 @@ class RegistrationActivity : AppCompatActivity() {
             else if (pass != repeatPass)
                 Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_LONG).show()
             else {
-                val user = User(login, pass)
-
-                val db = DbHelper(this, null)
-                db.addUser(user)
-
-                Toast.makeText(this, "Пользователь $login добавлен", Toast.LENGTH_LONG).show()
-
-                userLogin.text.clear()
-                userPassword.text.clear()
-                userRepeatPassword.text.clear()
+                auth.createUserWithEmailAndPassword(login, pass)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Пользователь $login добавлен", Toast.LENGTH_LONG).show()
+                            userLogin.text.clear()
+                            userPassword.text.clear()
+                            userRepeatPassword.text.clear()
+                            startActivity(Intent(this, AuthActivity::class.java))
+                        } else {
+                            Log.e("RegistrationActivity", "Ошибка регистрации", task.exception)
+                            Toast.makeText(this, "Ошибка регистрации: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
             }
         }
     }

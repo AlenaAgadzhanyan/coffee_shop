@@ -11,4 +11,7 @@
     <string name="repeat_password">Repeat password</string>
     <string name="coffee_house2">Coffee <font color="#F1953e">H</font>ouse</string>
     <string name="search_anything">Search anything</string>
+    <string name="title">title</string>
+    <string name="email">Email</string>
+    <string name="category">Category</string>
 </resources>
