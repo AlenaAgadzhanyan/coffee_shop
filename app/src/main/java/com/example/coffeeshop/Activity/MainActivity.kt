@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffeeshop.Adapter.CategoryAdapter
+import com.example.coffeeshop.Adapter.PopularAdapter
+import com.example.coffeeshop.Adapter.SpecialAdapter
 import com.example.coffeeshop.R
 import com.example.coffeeshop.ViewModel.MainViewModel
 import com.example.coffeeshop.databinding.ActivityMainBinding
@@ -23,6 +25,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initCategory()
+        initPopular()
+        initSpecial()
+    }
+
+    private fun initSpecial() {
+        binding.progressBarSpecial.visibility = View.VISIBLE
+        viewModel.loadSpecial().observeForever {
+            binding.recyclerViewSpecial.layoutManager = LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false)
+            binding.progressBarSpecial.visibility = View.GONE
+            binding.recyclerViewSpecial.adapter = SpecialAdapter(it)
+        }
+        viewModel.loadSpecial()
+    }
+
+    private fun initPopular() {
+        binding.progressBarPopular.visibility = View.VISIBLE
+        viewModel.loadPopular().observeForever {
+            binding.recyclerViewPopular.layoutManager = LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false)
+            binding.progressBarPopular.visibility = View.GONE
+            binding.recyclerViewPopular.adapter = PopularAdapter(it)
+        }
     }
 
     private fun initCategory() {

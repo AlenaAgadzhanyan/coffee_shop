@@ -117,4 +117,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.google.mlkit:translate:17.0.2")
 }

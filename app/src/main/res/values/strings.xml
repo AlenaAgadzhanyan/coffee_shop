@@ -14,4 +14,7 @@
     <string name="title">title</string>
     <string name="email">Email</string>
     <string name="category">Category</string>
+    <string name="popular_coffees">Popular Coffees</string>
+    <string name="title2">Title</string>
+    <string name="special_for_you">Special for you</string>
 </resources>
