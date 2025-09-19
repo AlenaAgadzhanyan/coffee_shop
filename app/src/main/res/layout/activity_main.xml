@@ -10,13 +10,12 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-105dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
             android:orientation="vertical" >
 
             <TextView
@@ -58,15 +57,17 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:clipToPadding="false"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
+                    android:minHeight="100dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -81,17 +82,17 @@
                     android:layout_height="wrap_content"
                     android:indeterminateTint="@color/orange"
                     android:indeterminateTintMode="src_in"
-                    app:layout_constraintBottom_toBottomOf="@+id/progressBarCategory"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerViewCategory"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/progressBarCategory" />
+                    app:layout_constraintTop_toTopOf="@+id/recyclerViewCategory" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal">
 
@@ -117,13 +118,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="8dp"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewPopular"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:minHeight="100dp"
                     android:clipToPadding="false"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
@@ -140,17 +143,17 @@
                     android:layout_height="wrap_content"
                     android:indeterminateTint="@color/orange"
                     android:indeterminateTintMode="src_in"
-                    app:layout_constraintBottom_toBottomOf="@+id/progressBarPopular"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerViewPopular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/progressBarPopular" />
+                    app:layout_constraintTop_toTopOf="@+id/recyclerViewPopular" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal">
 
@@ -174,14 +177,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="8dp"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewSpecial"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:clipToPadding="false"
+                    android:minHeight="100dp"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -197,10 +201,10 @@
                     android:layout_height="wrap_content"
                     android:indeterminateTint="@color/orange"
                     android:indeterminateTintMode="src_in"
-                    app:layout_constraintBottom_toBottomOf="@+id/progressBarSpecial"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerViewSpecial"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/progressBarSpecial" />
+                    app:layout_constraintTop_toTopOf="@+id/recyclerViewSpecial" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
