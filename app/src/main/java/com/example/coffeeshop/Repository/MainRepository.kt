@@ -76,7 +76,7 @@ class MainRepository {
     fun loadCategoryItems(categoryId: String) : LiveData<MutableList<ItemModel>>{
         val itemsLiveData = MutableLiveData<MutableList<ItemModel>>()
         val ref = firebaseDatabase.getReference("Items")
-        val query: Query =ref.orderByChild("categoryId").equalTo(categoryId)
+        val query: Query = ref.orderByChild("categoryId").equalTo(categoryId)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot){
