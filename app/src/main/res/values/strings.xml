@@ -17,4 +17,6 @@
     <string name="popular_coffees">Popular Coffees</string>
     <string name="title2">Title</string>
     <string name="special_for_you">Special for you</string>
+    <string name="list">List</string>
+    <string name="back">back</string>
 </resources>

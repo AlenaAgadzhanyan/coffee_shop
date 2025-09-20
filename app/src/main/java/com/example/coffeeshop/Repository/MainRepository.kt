@@ -7,6 +7,7 @@ import com.example.coffeeshop.Domain.ItemModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 
 class MainRepository {
@@ -70,5 +71,27 @@ class MainRepository {
             }
         })
         return listData
+    }
+
+    fun loadCategoryItems(categoryId: String) : LiveData<MutableList<ItemModel>>{
+        val itemsLiveData = MutableLiveData<MutableList<ItemModel>>()
+        val ref = firebaseDatabase.getReference("Items")
+        val query: Query =ref.orderByChild("categoryId").equalTo(categoryId)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot){
+                val list = mutableListOf<ItemModel>()
+                for (child in snapshot.children){
+                    val item = child.getValue(ItemModel::class.java)
+                    item?.let {list.add(it)}
+                }
+                itemsLiveData.value = list
+            }
+
+            override fun onCancelled(error: DatabaseError){
+                TODO("Not yet implemented")
+            }
+        })
+        return itemsLiveData
     }
 }
