@@ -1,5 +1,6 @@
 package com.example.coffeeshop.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         initCategory()
         initPopular()
         initSpecial()
+        initBottomMenu()
+    }
+
+    private fun initBottomMenu() {
+        binding.cartBtn.setOnClickListener { startActivity(Intent(this, CartActivity::class.java)) }
     }
 
     private fun initSpecial() {
