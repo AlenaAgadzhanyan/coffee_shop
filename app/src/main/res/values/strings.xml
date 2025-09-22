@@ -19,4 +19,9 @@
     <string name="special_for_you">Special for you</string>
     <string name="list">List</string>
     <string name="back">back</string>
+    <string name="description">Description</string>
+    <string name="coffee_size">Coffee Size</string>
+    <string name="buy_now">Buy now</string>
+    <string name="price">Price</string>
+    <string name="_0">$0</string>
 </resources>
