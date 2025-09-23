@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBottomMenu() {
         binding.cartBtn.setOnClickListener { startActivity(Intent(this, CartActivity::class.java)) }
+        binding.favoriteBtn.setOnClickListener { startActivity(Intent(this, FavoriteActivity::class.java)) }
     }
 
     private fun initSpecial() {

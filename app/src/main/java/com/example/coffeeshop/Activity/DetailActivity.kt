@@ -100,6 +100,22 @@ class DetailActivity : AppCompatActivity() {
                     item.numberInCart--}
             }
 
+            if (managementCart.isFavorite(item)) {
+                binding.favoriteBtn.setImageResource(R.drawable.ic_favorite_filled)
+            } else {
+                binding.favoriteBtn.setImageResource(R.drawable.ic_favorite)
+            }
+
+            binding.favoriteBtn.setOnClickListener {
+                if (managementCart.isFavorite(item)) {
+                    managementCart.removeFavorite(item)
+                    binding.favoriteBtn.setImageResource(R.drawable.ic_favorite)
+                } else {
+                    managementCart.insertFavorite(item)
+                    binding.favoriteBtn.setImageResource(R.drawable.ic_favorite_filled)
+                }
+            }
+
         }
     }
 }

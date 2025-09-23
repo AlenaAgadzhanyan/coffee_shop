@@ -58,4 +58,33 @@ class ManagmentCart(val context: Context) {
         }
         return fee
     }
+
+    fun getListFavorite(): ArrayList<ItemsModel> {
+        return tinyDB.getListObject("FavoriteList") ?: arrayListOf()
+    }
+
+    fun insertFavorite(item: ItemsModel) {
+        val listFavorites = getListFavorite()
+        val existAlready = listFavorites.any { it.title == item.title }
+        if (!existAlready) {
+            listFavorites.add(item)
+            tinyDB.putListObject("FavoriteList", listFavorites)
+            Toast.makeText(context, "Added to your Favorites", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun removeFavorite(item: ItemsModel) {
+        val listFavorites = getListFavorite()
+        val index = listFavorites.indexOfFirst { it.title == item.title }
+        if (index != -1) {
+            listFavorites.removeAt(index)
+            tinyDB.putListObject("FavoriteList", listFavorites)
+            Toast.makeText(context, "Removed from your Favorites", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun isFavorite(item: ItemsModel): Boolean {
+        val listFavorites = getListFavorite()
+        return listFavorites.any { it.title == item.title }
+    }
 }
