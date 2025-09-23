@@ -56,7 +56,7 @@ class CartActivity : AppCompatActivity() {
         val delivery = 15
         tax = Math.round((managmentCart.getTotalFee()*percentTax)*100)/100.0
 
-        val total = Math.round((managmentCart.getTotalFee()*tax*delivery)*100)/100
+        val total = Math.round((managmentCart.getTotalFee()+tax+delivery)*100)/100
         val itemTotal = Math.round(managmentCart.getTotalFee()*100)/100
         binding.apply{
             totalFeeTxt.text = "$$itemTotal"
