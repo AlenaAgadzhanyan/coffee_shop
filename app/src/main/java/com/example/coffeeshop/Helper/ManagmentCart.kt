@@ -87,4 +87,9 @@ class ManagmentCart(val context: Context) {
         val listFavorites = getListFavorite()
         return listFavorites.any { it.title == item.title }
     }
+
+    fun clearCartAndFavorites() {
+        tinyDB.remove("CartList")
+        tinyDB.remove("FavoriteList")
+    }
 }
