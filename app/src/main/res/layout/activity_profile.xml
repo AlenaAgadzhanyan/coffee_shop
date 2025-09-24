@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/settingsTextView">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -38,16 +38,17 @@
         android:id="@+id/settingsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="Настройки"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/backBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -169,9 +170,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:text="Редактировать"
                 android:background="@drawable/orange_bg"
-                android:textColor="@color/darkBrown"/>
+                android:text="Редактировать"
+                android:textColor="@color/darkBrown" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -216,8 +217,8 @@
                     android:id="@+id/logoutBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/orange_bg"
                     android:text="Выйти из аккаунта"
                     android:textColor="@color/darkBrown"
@@ -227,8 +228,8 @@
                     android:id="@+id/deleteAccountBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/red_bg"
                     android:text="Удалить аккаунт"
                     android:textColor="@color/white"

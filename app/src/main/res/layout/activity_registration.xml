@@ -44,36 +44,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/user_password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_layout"
         android:layout_width="287dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="352dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:layout_marginTop="340dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/white"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white">
 
-    <EditText
-        android:id="@+id/user_repeat_password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repeat_password_layout"
         android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="448dp"
-        android:ems="10"
-        android:hint="@string/repeat_password"
-        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="430dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:passwordToggleEnabled="true"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:passwordToggleTint="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_repeat_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/repeat_password"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_up"

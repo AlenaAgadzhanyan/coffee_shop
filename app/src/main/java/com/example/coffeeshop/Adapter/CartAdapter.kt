@@ -2,6 +2,7 @@ package com.example.coffeeshop.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -12,10 +13,12 @@ import com.example.coffeeshop.Helper.ChangeNumberItemsListener
 import com.example.coffeeshop.Helper.ManagmentCart
 import com.example.coffeeshop.databinding.ViewholderCartBinding
 
-class CartAdapter(private val listItemSelected: ArrayList<ItemsModel>,
-                  context: Context,
-                  var changeNumberItemsListener: ChangeNumberItemsListener? = null
-                  ): RecyclerView.Adapter<CartAdapter.Viewholder>() {
+class CartAdapter(
+    private val listItemSelected: ArrayList<ItemsModel>,
+    context: Context,
+    var changeNumberItemsListener: ChangeNumberItemsListener? = null,
+    private val isDisplayOnly: Boolean = false
+) : RecyclerView.Adapter<CartAdapter.Viewholder>() {
     class Viewholder(val binding: ViewholderCartBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val managmentCart = ManagmentCart(context)
@@ -41,33 +44,38 @@ class CartAdapter(private val listItemSelected: ArrayList<ItemsModel>,
             .load(item.picUrl[0]).apply(RequestOptions().transform(CenterCrop()))
             .into(holder.binding.picCart)
 
-        holder.binding.plusEachItem.setOnClickListener {
-            managmentCart.plusItem(listItemSelected, position, object : ChangeNumberItemsListener {
-                override fun onChanged() {
-                    notifyDataSetChanged()
-                    changeNumberItemsListener?.onChanged()
-                }
-            })
-        }
+        if (isDisplayOnly) {
+            holder.binding.plusEachItem.visibility = View.GONE
+            holder.binding.minusEachItem.visibility = View.GONE
+            holder.binding.removeItemBtn.visibility = View.GONE
+        } else {
+            holder.binding.plusEachItem.setOnClickListener {
+                managmentCart.plusItem(listItemSelected, position, object : ChangeNumberItemsListener {
+                    override fun onChanged() {
+                        notifyDataSetChanged()
+                        changeNumberItemsListener?.onChanged()
+                    }
+                })
+            }
 
-        holder.binding.minusEachItem.setOnClickListener {
-            managmentCart.minusItem(listItemSelected, position, object : ChangeNumberItemsListener {
-                override fun onChanged() {
-                    notifyDataSetChanged()
-                    changeNumberItemsListener?.onChanged()
-                }
-            })
-        }
+            holder.binding.minusEachItem.setOnClickListener {
+                managmentCart.minusItem(listItemSelected, position, object : ChangeNumberItemsListener {
+                    override fun onChanged() {
+                        notifyDataSetChanged()
+                        changeNumberItemsListener?.onChanged()
+                    }
+                })
+            }
 
-        holder.binding.removeItemBtn.setOnClickListener {
-            managmentCart.removeItem(listItemSelected, position, object: ChangeNumberItemsListener {
-                override fun onChanged() {
-                    notifyDataSetChanged()
-                    changeNumberItemsListener?.onChanged()
-                }
-            })
+            holder.binding.removeItemBtn.setOnClickListener {
+                managmentCart.removeItem(listItemSelected, position, object : ChangeNumberItemsListener {
+                    override fun onChanged() {
+                        notifyDataSetChanged()
+                        changeNumberItemsListener?.onChanged()
+                    }
+                })
+            }
         }
-
     }
 
     override fun getItemCount(): Int = listItemSelected.size

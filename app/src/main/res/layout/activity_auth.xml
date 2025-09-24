@@ -44,20 +44,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/user_password_auth"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_layout"
         android:layout_width="287dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="364dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:layout_marginTop="350dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/white"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_password_auth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:passwordToggleTint="@color/white"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_in"

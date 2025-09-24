@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.cartBtn.setOnClickListener { startActivity(Intent(this, CartActivity::class.java)) }
         binding.favoriteBtn.setOnClickListener { startActivity(Intent(this, FavoriteActivity::class.java)) }
         binding.profileBtn.setOnClickListener { startActivity(Intent(this, ProfileActivity::class.java)) }
+        binding.orderBtn.setOnClickListener { startActivity(Intent(this, OrderActivity::class.java)) }
     }
 
     private fun initSpecial() {
