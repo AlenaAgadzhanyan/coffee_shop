@@ -44,13 +44,14 @@
         </activity>
         <activity
             android:name=".Activity.AuthActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".Activity.RegistrationActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".Activity.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
+
     </application>
 
 </manifest>
